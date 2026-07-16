@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>English Exercise</title>
+</head>
+
+<body>
+
+<h1>Present Simple Exercise</h1>
+
+<p>Choose the correct answer:</p>
+
+<p>1. She ___ to school every day.</p>
+
+<button onclick="check('go')">go</button>
+<button onclick="check('goes')">goes</button>
+
+<p id="answer"></p>
+
+
+<script>
+
+function check(x){
+
+if(x=="goes"){
+document.getElementById("answer").innerHTML="✅ Correct!";
+}
+
+else{
+document.getElementById("answer").innerHTML="❌ Try again";
+}
+
+}
+
+</script>
+
+</body>
+</html>

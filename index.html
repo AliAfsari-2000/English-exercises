@@ -3,108 +3,139 @@
 
 <head>
 <title>Active and Passive Voice Exercise</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 30px;
+}
+
+h1 {
+    color: blue;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.answer {
+    font-weight: bold;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>Active and Passive Voice</h1>
+<h1>Active and Passive Voice Exercise</h1>
 
 <h2>1. Present Simple (am / is / are)</h2>
 
-<p>1. Active: They clean the room.</p>
+<p><b>1.</b> Active: They clean the room.</p>
 <p>Passive: The room ___ by them.</p>
 
 <button onclick="check(1,'is cleaned')">is cleaned</button>
 <button onclick="check(1,'was cleaned')">was cleaned</button>
-<p id="answer1"></p>
+<p id="answer1" class="answer"></p>
 
 
-<p>2. Active: She writes a letter.</p>
+<p><b>2.</b> Active: She writes a letter.</p>
 <p>Passive: A letter ___ by her.</p>
 
 <button onclick="check(2,'is written')">is written</button>
 <button onclick="check(2,'will written')">will written</button>
-<p id="answer2"></p>
+<p id="answer2" class="answer"></p>
 
 
-<p>3. Active: They make cars.</p>
+<p><b>3.</b> Active: They make cars.</p>
 <p>Passive: Cars ___ by them.</p>
 
 <button onclick="check(3,'are made')">are made</button>
 <button onclick="check(3,'were made')">were made</button>
-<p id="answer3"></p>
+<p id="answer3" class="answer"></p>
+
 
 
 <h2>2. Past Simple (was / were)</h2>
 
-<p>4. Active: He repaired the car.</p>
+
+<p><b>4.</b> Active: He repaired the car.</p>
 <p>Passive: The car ___ by him.</p>
 
 <button onclick="check(4,'was repaired')">was repaired</button>
 <button onclick="check(4,'is repaired')">is repaired</button>
-<p id="answer4"></p>
+<p id="answer4" class="answer"></p>
 
 
-<p>5. Active: They built a house.</p>
+
+<p><b>5.</b> Active: They built a house.</p>
 <p>Passive: A house ___ by them.</p>
 
 <button onclick="check(5,'was built')">was built</button>
 <button onclick="check(5,'is built')">is built</button>
-<p id="answer5"></p>
+<p id="answer5" class="answer"></p>
 
 
-<p>6. Active: They cleaned the rooms.</p>
+
+<p><b>6.</b> Active: They cleaned the rooms.</p>
 <p>Passive: The rooms ___ by them.</p>
 
 <button onclick="check(6,'were cleaned')">were cleaned</button>
 <button onclick="check(6,'are cleaned')">are cleaned</button>
-<p id="answer6"></p>
+<p id="answer6" class="answer"></p>
+
 
 
 <h2>3. Future Simple (will)</h2>
 
-<p>7. Active: They will finish the work.</p>
+
+<p><b>7.</b> Active: They will finish the work.</p>
 <p>Passive: The work ___ by them.</p>
 
 <button onclick="check(7,'will be finished')">will be finished</button>
 <button onclick="check(7,'will finished')">will finished</button>
-<p id="answer7"></p>
+<p id="answer7" class="answer"></p>
 
 
-<p>8. Active: She will write a book.</p>
+
+<p><b>8.</b> Active: She will write a book.</p>
 <p>Passive: A book ___ by her.</p>
 
 <button onclick="check(8,'will be written')">will be written</button>
 <button onclick="check(8,'will written')">will written</button>
-<p id="answer8"></p>
+<p id="answer8" class="answer"></p>
 
 
-<p>9. Active: They will build a bridge.</p>
+
+<p><b>9.</b> Active: They will build a bridge.</p>
 <p>Passive: A bridge ___ by them.</p>
 
 <button onclick="check(9,'will be built')">will be built</button>
 <button onclick="check(9,'will built')">will built</button>
-<p id="answer9"></p>
+<p id="answer9" class="answer"></p>
+
 
 
 <script>
 
 function check(number, answer){
 
-let correct = [
-"",
-"is cleaned",
-"is written",
-"are made",
-"was repaired",
-"was built",
-"were cleaned",
-"will be finished",
-"will be written",
-"will be built"
-];
+let correctAnswers = {
+1:"is cleaned",
+2:"is written",
+3:"are made",
+4:"was repaired",
+5:"was built",
+6:"were cleaned",
+7:"will be finished",
+8:"will be written",
+9:"will be built"
+};
 
-if(answer == correct[number]){
+
+if(answer == correctAnswers[number]){
 document.getElementById("answer"+number).innerHTML="✅ Correct!";
 }
 else{

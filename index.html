@@ -62,8 +62,6 @@ button:hover {
 let questions = [
 
 
-/* AM */
-
 {
 active:"They invite me to the party.",
 passive:"I ___ to the party.",
@@ -88,9 +86,6 @@ correct:"am chosen",
 explanation:"choose → chosen. We use <b>am + past participle</b>."
 },
 
-
-
-/* IS */
 
 {
 active:"They clean the room every day.",
@@ -117,9 +112,6 @@ explanation:"Cake is singular, so we use <b>is + past participle</b>."
 },
 
 
-
-/* ARE */
-
 {
 active:"They wash cars every morning.",
 passive:"Cars ___ every morning.",
@@ -145,9 +137,6 @@ explanation:"Walls are plural, so we use <b>are + past participle</b>."
 },
 
 
-
-/* WAS */
-
 {
 active:"They repaired the car yesterday.",
 passive:"The car ___ yesterday.",
@@ -172,10 +161,6 @@ correct:"was built",
 explanation:"Bridge is singular, so we use <b>was + past participle</b>."
 },
 
-
-
-/* WERE */
-
 {
 active:"They cleaned the rooms yesterday.",
 passive:"The rooms ___ yesterday.",
@@ -189,7 +174,7 @@ active:"They painted the walls.",
 passive:"The walls ___ blue.",
 choices:["were painted","was painted","are painted"],
 correct:"were painted",
-explanation:"Walls are plural and the action happened in the past."
+explanation:"Walls are plural and the action happened in the past, so we use <b>were + past participle</b>."
 },
 
 {
@@ -200,9 +185,6 @@ correct:"were opened",
 explanation:"Doors are plural, so we use <b>were + past participle</b>."
 },
 
-
-
-/* WILL BE */
 
 {
 active:"They will finish the work tomorrow.",
@@ -233,6 +215,11 @@ explanation:"Future Passive = <b>will be + past participle</b>. build → built.
 
 
 
+// Randomize question order
+questions.sort(() => Math.random() - 0.5);
+
+
+
 let quiz = document.getElementById("quiz");
 
 
@@ -243,9 +230,9 @@ questions.forEach((q,index)=>{
 let choices = [...q.choices];
 
 
-// Randomize answers
+// Randomize answer positions
 
-choices.sort(()=>Math.random()-0.5);
+choices.sort(() => Math.random() - 0.5);
 
 
 
@@ -260,9 +247,11 @@ quiz.innerHTML += `
 ${choices[0]}
 </button>
 
+
 <button onclick="check('${choices[1]}','${q.correct}','${index}')">
 ${choices[1]}
 </button>
+
 
 <button onclick="check('${choices[2]}','${q.correct}','${index}')">
 ${choices[2]}
@@ -278,10 +267,12 @@ ${choices[2]}
 
 
 
+
 function check(selected, correct, index){
 
 
 let result = document.getElementById("result"+index);
+
 
 
 if(result.innerHTML !== ""){
@@ -304,7 +295,8 @@ questions[index].explanation;
 else{
 
 result.innerHTML =
-"❌ Try again.<br><br>Passive = be + past participle";
+"❌ Try again.<br><br>" +
+"Remember: Passive = be + past participle";
 
 }
 
@@ -313,6 +305,7 @@ result.innerHTML =
 
 
 }
+
 
 
 </script>

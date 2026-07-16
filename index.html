@@ -2,43 +2,64 @@
 <html>
 
 <head>
+
 <title>Active and Passive Voice Exercise</title>
 
 <style>
+
 body {
     font-family: Arial;
     margin: 30px;
+    line-height: 1.6;
 }
 
 h1 {
-    color: blue;
+    color: #1a73e8;
+}
+
+h2 {
+    color: #444;
 }
 
 button {
     padding: 8px 15px;
     margin: 5px;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
 }
 
 .answer {
     font-weight: bold;
+    margin-bottom: 20px;
 }
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <h1>Active and Passive Voice Exercise</h1>
 
-<h2>1. Present Simple (am / is / are)</h2>
+
+<h2>1. Present Simple Passive (am / is / are + V3)</h2>
+
 
 <p><b>1.</b> Active: They clean the room.</p>
 <p>Passive: The room ___ by them.</p>
 
 <button onclick="check(1,'is cleaned')">is cleaned</button>
 <button onclick="check(1,'was cleaned')">was cleaned</button>
+
 <p id="answer1" class="answer"></p>
+
 
 
 <p><b>2.</b> Active: She writes a letter.</p>
@@ -46,7 +67,10 @@ button {
 
 <button onclick="check(2,'is written')">is written</button>
 <button onclick="check(2,'will written')">will written</button>
+
 <p id="answer2" class="answer"></p>
+
+
 
 
 <p><b>3.</b> Active: They make cars.</p>
@@ -54,11 +78,14 @@ button {
 
 <button onclick="check(3,'are made')">are made</button>
 <button onclick="check(3,'were made')">were made</button>
+
 <p id="answer3" class="answer"></p>
 
 
 
-<h2>2. Past Simple (was / were)</h2>
+
+<h2>2. Past Simple Passive (was / were + V3)</h2>
+
 
 
 <p><b>4.</b> Active: He repaired the car.</p>
@@ -66,7 +93,9 @@ button {
 
 <button onclick="check(4,'was repaired')">was repaired</button>
 <button onclick="check(4,'is repaired')">is repaired</button>
+
 <p id="answer4" class="answer"></p>
+
 
 
 
@@ -75,7 +104,9 @@ button {
 
 <button onclick="check(5,'was built')">was built</button>
 <button onclick="check(5,'is built')">is built</button>
+
 <p id="answer5" class="answer"></p>
+
 
 
 
@@ -84,11 +115,14 @@ button {
 
 <button onclick="check(6,'were cleaned')">were cleaned</button>
 <button onclick="check(6,'are cleaned')">are cleaned</button>
+
 <p id="answer6" class="answer"></p>
 
 
 
-<h2>3. Future Simple (will)</h2>
+
+<h2>3. Future Passive (will be + V3)</h2>
+
 
 
 <p><b>7.</b> Active: They will finish the work.</p>
@@ -96,7 +130,9 @@ button {
 
 <button onclick="check(7,'will be finished')">will be finished</button>
 <button onclick="check(7,'will finished')">will finished</button>
+
 <p id="answer7" class="answer"></p>
+
 
 
 
@@ -105,7 +141,9 @@ button {
 
 <button onclick="check(8,'will be written')">will be written</button>
 <button onclick="check(8,'will written')">will written</button>
+
 <p id="answer8" class="answer"></p>
+
 
 
 
@@ -114,15 +152,17 @@ button {
 
 <button onclick="check(9,'will be built')">will be built</button>
 <button onclick="check(9,'will built')">will built</button>
+
 <p id="answer9" class="answer"></p>
+
 
 
 
 <script>
 
-function check(number, answer){
 
 let correctAnswers = {
+
 1:"is cleaned",
 2:"is written",
 3:"are made",
@@ -132,17 +172,70 @@ let correctAnswers = {
 7:"will be finished",
 8:"will be written",
 9:"will be built"
+
 };
 
 
+
+let explanations = {
+
+
+1:"✅ Correct!<br><br>Present Simple Passive:<br><b>am/is/are + V3</b><br><br>Room is singular, so we use <b>is</b>.<br>clean → cleaned.",
+
+
+2:"✅ Correct!<br><br>Present Simple Passive:<br><b>am/is/are + V3</b><br><br>Letter is singular, so we use <b>is</b>.<br>write → written.",
+
+
+3:"✅ Correct!<br><br>Cars is plural, so we use <b>are + V3</b>.<br>make → made.",
+
+
+4:"✅ Correct!<br><br>Past Simple Passive:<br><b>was/were + V3</b><br><br>Car is singular, so we use <b>was</b>.<br>repair → repaired.",
+
+
+5:"✅ Correct!<br><br>House is singular, so we use <b>was + V3</b>.<br>build → built.",
+
+
+6:"✅ Correct!<br><br>Rooms is plural, so we use <b>were + V3</b>.<br>clean → cleaned.",
+
+
+7:"✅ Correct!<br><br>Future Passive:<br><b>will be + V3</b><br>finish → finished.",
+
+
+8:"✅ Correct!<br><br>Future Passive:<br><b>will be + V3</b><br>write → written.",
+
+
+9:"✅ Correct!<br><br>Future Passive:<br><b>will be + V3</b><br>build → built."
+
+
+};
+
+
+
+function check(number, answer){
+
+
 if(answer == correctAnswers[number]){
-document.getElementById("answer"+number).innerHTML="✅ Correct!";
-}
-else{
-document.getElementById("answer"+number).innerHTML="❌ Try again";
-}
+
+
+document.getElementById("answer"+number).innerHTML =
+explanations[number];
+
 
 }
+
+
+else{
+
+
+document.getElementById("answer"+number).innerHTML =
+"❌ Try again.<br>Remember: Passive = be + V3";
+
+
+}
+
+
+}
+
 
 </script>
 

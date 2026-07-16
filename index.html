@@ -49,7 +49,7 @@ button:hover {
 
 <h1>Active and Passive Voice Exercise</h1>
 
-<h2>Choose the correct passive sentence.</h2>
+<h2>Choose the correct passive form.</h2>
 
 
 <div id="quiz"></div>
@@ -61,32 +61,36 @@ button:hover {
 
 let questions = [
 
+
+/* AM */
+
 {
 active:"They invite me to the party.",
 passive:"I ___ to the party.",
-choices:["am invited","is invited","was invited"],
+choices:["am invited","is invited","are invited"],
 correct:"am invited",
-explanation:"The subject is <b>I</b>, so we use <b>am + past participle</b>.<br>invite → invited."
+explanation:"The subject is <b>I</b>, so we use <b>am + past participle</b>."
 },
-
 
 {
 active:"They call me Ali.",
 passive:"I ___ Ali.",
-choices:["am called","are called","was called"],
+choices:["am called","is called","were called"],
 correct:"am called",
-explanation:"With the subject <b>I</b>, Present Passive uses <b>am + past participle</b>."
+explanation:"With <b>I</b>, passive uses <b>am + past participle</b>."
 },
-
 
 {
 active:"They choose me for the team.",
 passive:"I ___ for the team.",
-choices:["am chosen","is chosen","were chosen"],
+choices:["am chosen","is chosen","are chosen"],
 correct:"am chosen",
-explanation:"Choose is an irregular verb.<br>choose → chosen."
+explanation:"choose → chosen. We use <b>am + past participle</b>."
 },
 
+
+
+/* IS */
 
 {
 active:"They clean the room every day.",
@@ -96,51 +100,81 @@ correct:"is cleaned",
 explanation:"The room is singular, so we use <b>is + past participle</b>."
 },
 
-
 {
 active:"She writes a letter.",
 passive:"A letter ___ by her.",
-choices:["is written","was written","are written"],
+choices:["is written","are written","was written"],
 correct:"is written",
-explanation:"Present Simple Passive = <b>am/is/are + past participle</b>.<br>write → written."
+explanation:"write → written. Present Passive = <b>is + past participle</b>."
 },
-
 
 {
 active:"They make a cake.",
 passive:"A cake ___ by them.",
-choices:["is made","are made","was made"],
+choices:["is made","are made","were made"],
 correct:"is made",
-explanation:"Cake is singular, so we use <b>is + past participle</b>.<br>make → made."
+explanation:"Cake is singular, so we use <b>is + past participle</b>."
 },
 
+
+
+/* ARE */
 
 {
 active:"They wash cars every morning.",
 passive:"Cars ___ every morning.",
-choices:["are washed","is washed","were washed"],
+choices:["are washed","is washed","was washed"],
 correct:"are washed",
 explanation:"Cars are plural, so we use <b>are + past participle</b>."
 },
-
 
 {
 active:"They build houses.",
 passive:"Houses ___ by them.",
 choices:["are built","is built","was built"],
 correct:"are built",
-explanation:"Houses are plural, so we use <b>are + past participle</b>.<br>build → built."
+explanation:"Houses are plural. build → built."
 },
 
+{
+active:"They paint the walls.",
+passive:"The walls ___ blue.",
+choices:["are painted","is painted","was painted"],
+correct:"are painted",
+explanation:"Walls are plural, so we use <b>are + past participle</b>."
+},
+
+
+
+/* WAS */
 
 {
 active:"They repaired the car yesterday.",
 passive:"The car ___ yesterday.",
 choices:["was repaired","were repaired","is repaired"],
 correct:"was repaired",
-explanation:"Past Simple Passive = <b>was/were + past participle</b>.<br>The car is singular, so use <b>was</b>."
+explanation:"Past Passive = <b>was/were + past participle</b>. Car is singular."
 },
 
+{
+active:"She wrote a book last year.",
+passive:"A book ___ by her.",
+choices:["was written","were written","is written"],
+correct:"was written",
+explanation:"write → written. We use <b>was + past participle</b>."
+},
+
+{
+active:"They built a bridge last year.",
+passive:"A bridge ___ last year.",
+choices:["was built","were built","is built"],
+correct:"was built",
+explanation:"Bridge is singular, so we use <b>was + past participle</b>."
+},
+
+
+
+/* WERE */
 
 {
 active:"They cleaned the rooms yesterday.",
@@ -150,23 +184,50 @@ correct:"were cleaned",
 explanation:"Rooms are plural, so we use <b>were + past participle</b>."
 },
 
+{
+active:"They painted the walls.",
+passive:"The walls ___ blue.",
+choices:["were painted","was painted","are painted"],
+correct:"were painted",
+explanation:"Walls are plural and the action happened in the past."
+},
 
 {
 active:"They opened the doors at 8.",
 passive:"The doors ___ at 8.",
 choices:["were opened","was opened","are opened"],
 correct:"were opened",
-explanation:"Doors are plural and the action happened in the past, so use <b>were + past participle</b>."
+explanation:"Doors are plural, so we use <b>were + past participle</b>."
 },
 
+
+
+/* WILL BE */
 
 {
 active:"They will finish the work tomorrow.",
 passive:"The work ___ tomorrow.",
 choices:["will be finished","will finished","will is finished"],
 correct:"will be finished",
-explanation:"Future Passive = <b>will be + past participle</b>.<br>finish → finished."
+explanation:"Future Passive = <b>will be + past participle</b>."
+},
+
+{
+active:"She will write a report.",
+passive:"A report ___ by her.",
+choices:["will be written","will written","will is written"],
+correct:"will be written",
+explanation:"write → written. Future Passive uses <b>will be + past participle</b>."
+},
+
+{
+active:"They will build a school next year.",
+passive:"A school ___ next year.",
+choices:["will be built","will built","will is built"],
+correct:"will be built",
+explanation:"Future Passive = <b>will be + past participle</b>. build → built."
 }
+
 
 ];
 
@@ -182,7 +243,7 @@ questions.forEach((q,index)=>{
 let choices = [...q.choices];
 
 
-// Randomize answer positions
+// Randomize answers
 
 choices.sort(()=>Math.random()-0.5);
 
@@ -199,11 +260,9 @@ quiz.innerHTML += `
 ${choices[0]}
 </button>
 
-
 <button onclick="check('${choices[1]}','${q.correct}','${index}')">
 ${choices[1]}
 </button>
-
 
 <button onclick="check('${choices[2]}','${q.correct}','${index}')">
 ${choices[2]}
@@ -212,11 +271,9 @@ ${choices[2]}
 
 <p id="result${index}" class="answer"></p>
 
-
 `;
 
 });
-
 
 
 
@@ -225,7 +282,6 @@ function check(selected, correct, index){
 
 
 let result = document.getElementById("result"+index);
-
 
 
 if(result.innerHTML !== ""){
@@ -239,21 +295,16 @@ else{
 
 if(selected == correct){
 
-
 result.innerHTML =
 "✅ Correct!<br><br>" +
 questions[index].explanation;
-
 
 }
 
 else{
 
-
 result.innerHTML =
-"❌ Try again.<br><br>" +
-"Remember: Passive = be + past participle";
-
+"❌ Try again.<br><br>Passive = be + past participle";
 
 }
 
@@ -262,7 +313,6 @@ result.innerHTML =
 
 
 }
-
 
 
 </script>

@@ -17,12 +17,17 @@ h1 {
     color: #1a73e8;
 }
 
+h2 {
+    color: #444;
+}
+
 button {
-    padding: 10px 20px;
+    padding: 10px 18px;
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
     border: 1px solid #888;
+    background-color: white;
 }
 
 button:hover {
@@ -44,8 +49,7 @@ button:hover {
 
 <h1>Active and Passive Voice Exercise</h1>
 
-
-<h2>Present Simple Passive (am/is/are + past participle)</h2>
+<h2>Choose the correct passive sentence.</h2>
 
 
 <div id="quiz"></div>
@@ -58,29 +62,110 @@ button:hover {
 let questions = [
 
 {
-question:"They clean the room.",
+active:"They invite me to the party.",
+passive:"I ___ to the party.",
+choices:["am invited","is invited","was invited"],
+correct:"am invited",
+explanation:"The subject is <b>I</b>, so we use <b>am + past participle</b>.<br>invite → invited."
+},
+
+
+{
+active:"They call me Ali.",
+passive:"I ___ Ali.",
+choices:["am called","are called","was called"],
+correct:"am called",
+explanation:"With the subject <b>I</b>, Present Passive uses <b>am + past participle</b>."
+},
+
+
+{
+active:"They choose me for the team.",
+passive:"I ___ for the team.",
+choices:["am chosen","is chosen","were chosen"],
+correct:"am chosen",
+explanation:"Choose is an irregular verb.<br>choose → chosen."
+},
+
+
+{
+active:"They clean the room every day.",
 passive:"The room ___ every day.",
+choices:["is cleaned","are cleaned","was cleaned"],
 correct:"is cleaned",
-wrong:"are cleaned",
-explanation:"The room is singular, so we use <b>is + past participle</b>.<br><br>clean → cleaned"
+explanation:"The room is singular, so we use <b>is + past participle</b>."
 },
 
 
 {
-question:"She writes a letter.",
+active:"She writes a letter.",
 passive:"A letter ___ by her.",
+choices:["is written","was written","are written"],
 correct:"is written",
-wrong:"was written",
-explanation:"Present Simple Passive = <b>am/is/are + past participle</b>.<br><br>write → written"
+explanation:"Present Simple Passive = <b>am/is/are + past participle</b>.<br>write → written."
 },
 
 
 {
-question:"They make cars.",
-passive:"Cars ___ by them.",
-correct:"are made",
-wrong:"is made",
-explanation:"Cars are plural, so we use <b>are + past participle</b>.<br><br>make → made"
+active:"They make a cake.",
+passive:"A cake ___ by them.",
+choices:["is made","are made","was made"],
+correct:"is made",
+explanation:"Cake is singular, so we use <b>is + past participle</b>.<br>make → made."
+},
+
+
+{
+active:"They wash cars every morning.",
+passive:"Cars ___ every morning.",
+choices:["are washed","is washed","were washed"],
+correct:"are washed",
+explanation:"Cars are plural, so we use <b>are + past participle</b>."
+},
+
+
+{
+active:"They build houses.",
+passive:"Houses ___ by them.",
+choices:["are built","is built","was built"],
+correct:"are built",
+explanation:"Houses are plural, so we use <b>are + past participle</b>.<br>build → built."
+},
+
+
+{
+active:"They repaired the car yesterday.",
+passive:"The car ___ yesterday.",
+choices:["was repaired","were repaired","is repaired"],
+correct:"was repaired",
+explanation:"Past Simple Passive = <b>was/were + past participle</b>.<br>The car is singular, so use <b>was</b>."
+},
+
+
+{
+active:"They cleaned the rooms yesterday.",
+passive:"The rooms ___ yesterday.",
+choices:["were cleaned","was cleaned","are cleaned"],
+correct:"were cleaned",
+explanation:"Rooms are plural, so we use <b>were + past participle</b>."
+},
+
+
+{
+active:"They opened the doors at 8.",
+passive:"The doors ___ at 8.",
+choices:["were opened","was opened","are opened"],
+correct:"were opened",
+explanation:"Doors are plural and the action happened in the past, so use <b>were + past participle</b>."
+},
+
+
+{
+active:"They will finish the work tomorrow.",
+passive:"The work ___ tomorrow.",
+choices:["will be finished","will finished","will is finished"],
+correct:"will be finished",
+explanation:"Future Passive = <b>will be + past participle</b>.<br>finish → finished."
 }
 
 ];
@@ -94,30 +179,34 @@ let quiz = document.getElementById("quiz");
 questions.forEach((q,index)=>{
 
 
-let answers = [q.correct, q.wrong];
+let choices = [...q.choices];
 
 
 // Randomize answer positions
 
-answers.sort(()=>Math.random()-0.5);
+choices.sort(()=>Math.random()-0.5);
 
 
 
 quiz.innerHTML += `
 
-
-<p><b>${index+1}. Active:</b> ${q.question}</p>
+<p><b>${index+1}. Active:</b> ${q.active}</p>
 
 <p>Passive: ${q.passive}</p>
 
 
-<button onclick="check('${answers[0]}','${q.correct}','${index}')">
-${answers[0]}
+<button onclick="check('${choices[0]}','${q.correct}','${index}')">
+${choices[0]}
 </button>
 
 
-<button onclick="check('${answers[1]}','${q.correct}','${index}')">
-${answers[1]}
+<button onclick="check('${choices[1]}','${q.correct}','${index}')">
+${choices[1]}
+</button>
+
+
+<button onclick="check('${choices[2]}','${q.correct}','${index}')">
+${choices[2]}
 </button>
 
 
@@ -141,11 +230,7 @@ let result = document.getElementById("result"+index);
 
 if(result.innerHTML !== ""){
 
-
-// Hide explanation
-
 result.innerHTML = "";
-
 
 }
 
@@ -161,7 +246,6 @@ questions[index].explanation;
 
 
 }
-
 
 else{
 
